@@ -1,0 +1,14 @@
+<div class="line">
+  <mat-form-field>
+    <mat-label>Search for keywords</mat-label>
+    <input matInput placeholder="" value="" [(ngModel)]="terms" autofocus>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="search(terms)">Search</button>
+</div>
+
+<div *ngIf="gists.length === 0">nothing to show...</div>
+
+<div class="gist" *ngFor="let gist of gists" (click)="copyToClipboard(gist)">
+  <h3>{{gist.title}}</h3>
+  <textarea id="clipboard-example-textarea" cols="30" rows="10" [disabled]="true">{{gist.code}}</textarea>
+</div>
